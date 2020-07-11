@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flex Panels 💪</title>
+  <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <style>
+    
+    html {
+      box-sizing: border-box;
+      background: #ffc600;
+      font-family: 'helvetica neue';
+      font-size: 20px;
+      font-weight: 200;
+    }
+
+    body {
+        margin: 0;
+    }
+    .outerbox {
+        border: 3px solid purple;
+        min-height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .innerbox {
+        border: 3px solid red;
+        
+    }
+
+    .innerbox1 {
+        background: green;
+        width: 10em;
+        height: 10em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 
+          width 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+          height 0.3s cubic-bezier(0.61,-0.19, 0.7,-0.11);
+        
+    }
+
+    .innerbox2 {
+        background: gray;
+        width: 5em;
+        height: 5em;
+        transition: 
+          width 0.3s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+          height 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11);
+    }
+
+    .hoverd {
+        width: 15em;
+        height: 15em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hoverd2 {
+        width: 75%;
+        height: 75%;
+        
+    }
+
+
+
+    
+  </style>
+
+
+    <div class = "outerbox">
+        <div class = "innerbox innerbox1">
+            <div class = "innerbox innerbox2"></div>
+        </div>
+    </div>
+
+
+  <script>
+    const innerbox = document.querySelector('.innerbox');
+    const innerbox2 = document.querySelector('.innerbox2');
+
+    function grow(e) {
+        console.log(e.toElement);
+         this.classList.add('hoverd');
+    }
+
+    function shrink(e) {
+      console.log(e.fromElement);
+      this.classList.remove('hoverd');
+
+    }
+
+    function grow2(e) {
+        console.log(e.toElement);
+         this.classList.add('hoverd2');
+    }
+
+    function shrink2(e) {
+      console.log(e.fromElement);
+      this.classList.remove('hoverd2');
+
+    }
+
+    innerbox.addEventListener('mouseover', grow);
+    innerbox.addEventListener('mouseleave', shrink);
+    innerbox2.addEventListener('mouseover', grow2);
+    innerbox2.addEventListener('mouseleave', shrink2);
+
+
+
+
+  </script>
+
+
+
+</body>
+</html>
